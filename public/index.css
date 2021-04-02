@@ -1,0 +1,92 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+html {
+  height: 100vh;
+  width: 100%;
+}
+
+html body {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(160deg, #FC3C80, #FFA3B8, #43B0F1);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+html body h1 {
+  text-align: center;
+  color: white;
+}
+
+html body .all {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 80%;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+html body .all .form .button {
+  color: white;
+  cursor: pointer;
+  padding: .5rem;
+  background: rgba(0, 0, 0, 0);
+  border: deeppink solid 1.5px;
+  border-radius: 5px;
+  font-weight: 500;
+  width: 80%;
+  font-size: 1.1rem;
+  margin-top: .8rem;
+}
+
+html body .all .result {
+  color: white;
+  margin-top: 1rem;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  font-weight: 500;
+  text-align: center;
+  padding: .5rem 1rem;
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 1.1rem;
+}
+
+@media (min-width: 64em) {
+  html body .all {
+    width: 50%;
+  }
+  html body .all .form .button {
+    width: 40%;
+  }
+}
+
+@media (min-width: 70em) {
+  html body .all {
+    width: 40%;
+  }
+  html body .all .form .button {
+    width: 30%;
+  }
+}
+/*# sourceMappingURL=index.css.map */
