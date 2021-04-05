@@ -24,7 +24,7 @@ app.post('/',(req,res)=>{
     console.log(da)
 
     
-    // sending data that 
+    // sending mp3 to AssemblyAI 
 
     axios.post('https://api.assemblyai.com/v2/upload',da,
     {headers:{"authorization": process.env.API_KEY,"Transer-Encoding":"chunked"}})
