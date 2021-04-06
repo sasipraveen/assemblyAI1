@@ -34,17 +34,20 @@ app.post('/',(req,res)=>{
             {headers:{"authorization": process.env.API_KEY,"content-type": "application/json"}})
             .then(got=>{
             console.log(got.data.id)
-                setTimeout(_=>
+                setInterval(function(){
                     axios.get(`https://api.assemblyai.com/v2/transcript/${got.data.id}`,{headers:{"authorization": process.env.API_KEY,"content-type": "application/json"}})
-                    .then(result=>{console.log(result.data)
-                        // err checking
-                        if(result.data.text){
-                            res.render('index',{result:result.data.text})
-                        }else{
-                            res.render('index',{result:"Sorry 💥💥💥"})
-                        }
+                    .then(result=>{//console.log(result.data)
+                        
+                        
+                        result.data.status==="queued"?console.log(result.data.status):
+                        result.data.status==="processing"?console.log(result.data.status):
+                        result.data.status==="completed"?res.render('index',{result:result.data.text}):
+                        res.render('index',{result:"Sorry 💥💥💥"})
+                       
+                        result.data.status==="completed"?this.clearTimeout():false
+
                     })
-                .catch(err=>console.log(err)),15000)
+                .catch(err=>console.log(err))},1000)
             })
             .catch(err=>{
             console.log(err)
@@ -53,8 +56,6 @@ app.post('/',(req,res)=>{
     .catch(err=>{
         console.log(err)
     })
-    // res.render(`index`,{})
+    
 })
 app.listen(process.env.PORT??6475,err=>err?console.log(err):console.log('its running on 6475'))
-
-// console.log(process.env.API_KEY)
